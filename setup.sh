@@ -4,7 +4,7 @@
 
 install_arch_packages() {
   echo "[+] Installing Arch packages"
-  sudo pacman -Syu fish vim tmux terminator cmake gcc pkgconfig fontconfig libxft freetype2
+  sudo pacman -Syu fish vim tmux terminator cmake gcc pkgconfig fontconfig libxft freetype2 unzip
 }
 
 install_rust() {
@@ -72,7 +72,7 @@ configure_tmux() {
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 	echo "[+] Installing Tmux Conf"
 	cp ./Tmux/.tmux.conf ~/.tmux.conf
-	echo "[+] Remember to press C-B+I to install!"
+	echo "[+] Remember to press C-A+I to install!"
 }
 
 configure_terminator() {
@@ -112,3 +112,7 @@ configure_vim
 configure_tmux
 configure_terminator
 install_neovim
+
+
+echo "[+] For vim remember to run :PlugInstall to install plugins!"
+echo "[+] For tmux remember to press C-A+I to install plugins!"

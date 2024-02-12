@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Install Fish, Vim, TMux
+# Install Fish, Vim, Tmux
 
-install_apt_packages() {
-	echo "[+] Installing apt packages"
-	sudo apt update && sudo apt install -y fish vim-gtk3 tmux terminator cmake gcc pkg-config fontconfig libfontconfig1-dev
+install_arch_packages() {
+  echo "[+] Installing Arch packages"
+  sudo pacman -Syu fish vim tmux terminator cmake gcc pkgconfig fontconfig libxft freetype2
 }
 
 install_rust() {
@@ -27,6 +27,7 @@ install_alacritty() {
 	sudo cp ./Alacritty/Alacritty.svg /usr/share/icons/hicolor/scalable/apps/
 	echo "[+] Copying Config"
 	mkdir ~/.config/alacritty
+	cp ./Alacritty/*.toml ~/.config/alacritty/
 	cp ./Alacritty/*.yml ~/.config/alacritty/
 }
 
@@ -69,7 +70,7 @@ configure_tmux() {
 	echo "[+] Configuring TMux"
 	echo "[+] Installing TPM"
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-	echo "[+] Installing TMux Conf"
+	echo "[+] Installing Tmux Conf"
 	cp ./Tmux/.tmux.conf ~/.tmux.conf
 	echo "[+] Remember to press C-B+I to install!"
 }
@@ -96,10 +97,12 @@ install_neovim() {
 		git clone https://github.com/mttaggart/neovim-config ~/.config/nvim
 		echo "[+] Setting Fish aliases"
 		echo "alias nv=nvim" >>~/.config/fish/config.fish
+		echo "[+] Installing npm and nodejs for plugins tsserver, jsonls and pyright"
+		sudo pacman -Syu nodejs npm
 	fi
 }
 
-install_apt_packages
+install_arch_packages
 install_alacritty
 install_starship
 install_nerdfont

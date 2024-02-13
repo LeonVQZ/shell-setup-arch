@@ -5,6 +5,8 @@ I just took his repo, adapted it to Arch Linux since that's my daily driver and 
 
 Thanks taggart for such a cool terminal setup!
 
+![image](https://github.com/LeonVQZ/shell-setup-arch/assets/33768736/9bfbe1f1-ded1-4960-8189-c22883c75756)
+
 # Shell Setup
 
 This is where I keep my configs for all the custom terminal stuff I do. Included are configurations for:
